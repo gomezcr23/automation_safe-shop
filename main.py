@@ -49,8 +49,8 @@ def cron_task_test():
 if __name__ == "__main__":
     scheduler = BackgroundScheduler()
 
-    # Programar las tareas
-    scheduler.add_job(interval_task_test, IntervalTrigger(minutes=1))
+    # scheduler.add_job(interval_task_test, IntervalTrigger(minutes=1))
+    scheduler.add_job(cron_task_test, CronTrigger(hour=23, minute=45))
     scheduler.add_job(cron_task_test, CronTrigger(hour=3, minute=30))
 
     print("Iniciando el programador de tareas...")
